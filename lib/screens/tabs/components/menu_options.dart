@@ -36,42 +36,34 @@ class _MenuOptionsState extends State<MenuOptions> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        child: ExpansionPanelList(
-          expansionCallback: (int index, bool isExpanded) {
-            setState(() {
-              _data[index].isExpanded = !isExpanded;
-            });
-          },
-          children: _data
-              .map(
-                (e) => ExpansionPanel(
-                  headerBuilder: (context, bool isExpanded) {
-                    return ListTile(
-                      title: Text(e.headerValue),
-                    );
-                  },
-                  body: ListTile(
-                    // title: Text(e.headerValue),
-                    subtitle: Text(e.expandedValue),
+        child: Theme(
+          data: Theme.of(context).copyWith(cardColor: Colors.grey[300]),
+          child: ExpansionPanelList(
+            dividerColor: Colors.grey[300],
+            elevation: 1,
+            expansionCallback: (int index, bool isExpanded) {
+              setState(() {
+                _data[index].isExpanded = !isExpanded;
+              });
+            },
+            children: _data
+                .map(
+                  (e) => ExpansionPanel(
+                    canTapOnHeader: true,
+                    headerBuilder: (context, bool isExpanded) {
+                      return ListTile(
+                        title: Text(e.headerValue),
+                      );
+                    },
+                    body: ListTile(
+                      // title: Text(e.headerValue),
+                      subtitle: Text(e.expandedValue),
+                    ),
+                    isExpanded: e.isExpanded,
                   ),
-                  isExpanded: e.isExpanded,
-                ),
-              )
-              .toList(),
-          // [
-          //   ExpansionPanel(
-          //     headerBuilder: (context, bool isExpanded) {
-          //       return ListTile(
-          //         title: Text("Hello"),
-          //       );
-          //     },
-          //     body: ListTile(
-          //       title: Text("Hello"),
-          //       subtitle: Text("Hiii this is sub"),
-          //     ),
-          //     isExpanded: false,
-          //   )
-          // ],
+                )
+                .toList(),
+          ),
         ),
       ),
     );
