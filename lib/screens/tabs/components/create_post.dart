@@ -1,3 +1,5 @@
+import 'package:facebook_ui/components/chip_outline.dart';
+import 'package:facebook_ui/components/profile_circle.dart';
 import 'package:flutter/material.dart';
 
 class CreatePost extends StatelessWidget {
@@ -39,15 +41,55 @@ class CreatePost extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.all(18.0),
-              child: Text(
-                "POST",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+              child: GestureDetector(
+                onTap: () {
+                  print('Post Message clicked');
+                },
+                child: Text(
+                  "POST",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
           ],
+        ),
+        body: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  ProfileCircleComponent(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Sai Kumar Adepu",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      ChipOutLine(
+                        label: "Public",
+                        bgColor: Colors.white,
+                        icon: Icons.public,
+                      )
+                    ],
+                  )
+                ],
+              ),
+              TextField(
+                maxLines: 20,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "What's on your mind?",
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
