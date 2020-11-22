@@ -32,80 +32,84 @@ class _SignupScreenState extends State<SignupScreen> {
               ],
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Create Facebook Account',
-                style: TextStyle(
-                  color: Colors.yellow,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Create Facebook Account',
+                    style: TextStyle(
+                      color: Colors.yellow,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  CustomInputField(
+                    label: 'First Name',
+                  ),
+                  CustomInputField(
+                    label: 'Last Name',
+                  ),
+                  CustomInputField(
+                    label: 'Mobile or Email',
+                  ),
+                  PasswordField(),
+                  DatepickerInput(),
+                  RadioListTile<Genders>(
+                    title: Text(
+                      "Male",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    value: Genders.Male,
+                    groupValue: gender,
+                    onChanged: (Genders val) {
+                      setState(() {
+                        gender = val;
+                      });
+                    },
+                    activeColor: Colors.white,
+                    toggleable: true,
+                  ),
+                  RadioListTile<Genders>(
+                    title: Text(
+                      "Female",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    value: Genders.Female,
+                    groupValue: gender,
+                    onChanged: (Genders val) {
+                      setState(() {
+                        gender = val;
+                      });
+                    },
+                    activeColor: Colors.white,
+                    toggleable: true,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  FullWidthButton(
+                    label: "Sign up",
+                    color: Contansts.darkColor,
+                    press: () {},
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  FullWidthButton(
+                    label: "Back",
+                    color: Colors.blue[900],
+                    press: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 15,
-              ),
-              CustomInputField(
-                label: 'First Name',
-              ),
-              CustomInputField(
-                label: 'Last Name',
-              ),
-              CustomInputField(
-                label: 'Mobile or Email',
-              ),
-              PasswordField(),
-              DatepickerInput(),
-              RadioListTile<Genders>(
-                title: Text(
-                  "Male",
-                  style: TextStyle(color: Colors.white),
-                ),
-                value: Genders.Male,
-                groupValue: gender,
-                onChanged: (Genders val) {
-                  setState(() {
-                    gender = val;
-                  });
-                },
-                activeColor: Colors.white,
-                toggleable: true,
-              ),
-              RadioListTile<Genders>(
-                title: Text(
-                  "Female",
-                  style: TextStyle(color: Colors.white),
-                ),
-                value: Genders.Female,
-                groupValue: gender,
-                onChanged: (Genders val) {
-                  setState(() {
-                    gender = val;
-                  });
-                },
-                activeColor: Colors.white,
-                toggleable: true,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              FullWidthButton(
-                label: "Sign up",
-                color: Contansts.darkColor,
-                press: () {},
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              FullWidthButton(
-                label: "Back",
-                color: Colors.blue[900],
-                press: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+            ),
           ),
         ),
       ),

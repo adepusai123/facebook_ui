@@ -30,6 +30,7 @@ class _DatepickerInputState extends State<DatepickerInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 60,
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
@@ -37,12 +38,14 @@ class _DatepickerInputState extends State<DatepickerInput> {
         border: Border.all(
           color: Colors.white,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
         controller: dateController,
         decoration: InputDecoration(
-          hintText: "Date of Birth",
+          border: InputBorder.none,
+          hintText: "YYYY-MM-DD",
+          labelText: "Date of Birth",
           hintStyle: TextStyle(
             color: Colors.black26,
           ),
@@ -51,6 +54,7 @@ class _DatepickerInputState extends State<DatepickerInput> {
             child: Icon(
               Icons.calendar_today,
               color: Contansts.darkColor,
+              size: 30,
             ),
           ),
         ),

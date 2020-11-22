@@ -50,6 +50,9 @@ class ChatRoom extends StatelessWidget {
     return InkWell(
       onTap: () {
         print("Room ${room['name']}");
+        final snackBar =
+            SnackBar(content: Text('Create Room is not yet implemented'));
+        Scaffold.of(context).showSnackBar(snackBar);
       },
       child: Container(
         width: size.width * 0.18,

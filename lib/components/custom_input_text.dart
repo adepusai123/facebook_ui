@@ -10,6 +10,7 @@ class CustomInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 60,
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
@@ -17,11 +18,13 @@ class CustomInputField extends StatelessWidget {
         border: Border.all(
           color: Colors.white,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
         decoration: InputDecoration(
-          hintText: label,
+          border: InputBorder.none,
+          // hintText: label,
+          labelText: label,
           hintStyle: TextStyle(
             color: Colors.black26,
           ),

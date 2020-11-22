@@ -15,12 +15,13 @@ class PasswordField extends StatelessWidget {
         border: Border.all(
           color: Colors.white,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
         obscureText: true,
         decoration: InputDecoration(
-          hintText: "Password",
+          labelText: "Password",
+          border: InputBorder.none,
           hintStyle: TextStyle(
             color: Colors.black26,
           ),

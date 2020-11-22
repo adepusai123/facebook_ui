@@ -36,12 +36,12 @@ class LoginScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               CustomInputField(
                 label: 'Phone or Email',
