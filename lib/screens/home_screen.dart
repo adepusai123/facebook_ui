@@ -1,4 +1,9 @@
 import 'package:facebook_ui/constants.dart';
+import 'package:facebook_ui/screens/tabs/group_tab_screen.dart';
+import 'package:facebook_ui/screens/tabs/home_tab_screen.dart';
+import 'package:facebook_ui/screens/tabs/menu_tab_screen.dart';
+import 'package:facebook_ui/screens/tabs/notification_tab_screen.dart';
+import 'package:facebook_ui/screens/tabs/watch_tab_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -105,29 +110,19 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               Tab(
                 icon: Icon(
-                  Icons.mark_chat_read,
+                  Icons.menu,
                   color: Contansts.darkColor,
                 ),
-              )
+              ),
             ]),
           ),
           body: TabBarView(
             children: [
-              Container(
-                color: Colors.yellow,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-              Container(
-                color: Colors.orange,
-              ),
-              Container(
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.green,
-              )
+              HomeTabScreen(),
+              WatchTabScreen(),
+              GroupTabScreen(),
+              NotificationTabScreen(),
+              MenuTabScreen()
             ],
           ),
         ),
