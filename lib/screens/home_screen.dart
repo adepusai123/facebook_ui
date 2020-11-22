@@ -55,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen>
             title: isSearchActive
                 ? TextField(
                     decoration: InputDecoration(
+                      fillColor: Colors.grey[200],
+                      border: InputBorder.none,
                       hintText: 'Search',
                     ),
                   )

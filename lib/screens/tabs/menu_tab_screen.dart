@@ -9,72 +9,70 @@ class MenuTabScreen extends StatelessWidget {
     // Size size = MediaQuery.of(context).size;
     return Container(
       color: Colors.grey[200],
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Menu",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Menu",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Colors.white,
-                    ),
-                    padding: EdgeInsets.all(5),
-                    child: Icon(
-                      Icons.search,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                print('Show Profile Page');
-              },
-              child: Row(
-                children: [
-                  ProfileCircleComponent(),
-                  SizedBox(
-                    width: 5,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Colors.white,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Sai Kumar Adepu",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        "See your profile",
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.grey,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                  padding: EdgeInsets.all(5),
+                  child: Icon(
+                    Icons.search,
+                  ),
+                )
+              ],
             ),
-            Divider(),
-            MenuOptions()
-          ],
-        ),
+          ),
+          InkWell(
+            onTap: () {
+              print('Show Profile Page');
+            },
+            child: Row(
+              children: [
+                ProfileCircleComponent(),
+                SizedBox(
+                  width: 5,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Sai Kumar Adepu",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
+                      "See your profile",
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          Divider(),
+          MenuOptions()
+        ],
       ),
     );
   }
