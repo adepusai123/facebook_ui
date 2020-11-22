@@ -15,10 +15,11 @@ class ProfileStatusWidget extends StatelessWidget {
           padding: EdgeInsets.all(3),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: Colors.blue[400],
+            color: Colors.grey[400],
           ),
           child: Icon(
             Icons.account_circle_outlined,
+            color: Colors.white,
             size: 40,
           ),
         ),
@@ -30,7 +31,7 @@ class ProfileStatusWidget extends StatelessWidget {
               margin: EdgeInsets.all(14),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                border: Border.all(),
+                border: Border.all(color: Colors.grey[400]),
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Text('Write Something here...'),

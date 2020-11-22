@@ -1,9 +1,7 @@
 import 'package:facebook_ui/components/custom_input_text.dart';
 import 'package:facebook_ui/components/date_picker.dart';
 import 'package:facebook_ui/components/full_width_button.dart';
-// import 'package:facebook_ui/components/gender_widget.dart';
 import 'package:facebook_ui/components/password_field.dart';
-import 'package:facebook_ui/screens/test_screen.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 

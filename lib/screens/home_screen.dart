@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               Tab(
                 icon: Icon(
-                  Icons.play_circle_fill_rounded,
+                  Icons.live_tv,
                   color: Contansts.darkColor,
                 ),
               ),
