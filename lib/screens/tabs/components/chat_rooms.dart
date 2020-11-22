@@ -12,12 +12,19 @@ class ChatRoomsWidget extends StatefulWidget {
 class _ChatRoomsWidgetState extends State<ChatRoomsWidget> {
   List<dynamic> rooms = [
     {"name": "SaiKumar Adepu", "image": "assets/images/sai_image.jpeg"},
-    {"name": "Private", "image": "assets/images/sai_image.jpeg"}
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
+    {"name": "Private", "image": "assets/images/sai_image.jpeg"},
   ];
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      height: 80,
+      height: size.height * 0.1,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -39,12 +46,13 @@ class ChatRoom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
         print("Room ${room['name']}");
       },
       child: Container(
-        width: 80,
+        width: size.width * 0.18,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey[300]),
         ),
