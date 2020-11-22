@@ -29,19 +29,22 @@ class HomeTabScreen extends StatelessWidget {
               height: 3,
               thickness: 5,
             ),
-            UserPostCard(),
+            UserPostCard(type: "image", data: "assets/images/sai_img.jpeg"),
             Divider(
               color: Colors.grey[300],
               height: 3,
               thickness: 5,
             ),
-            UserPostCard(),
+            UserPostCard(
+                type: "text",
+                data:
+                    "Hello Sai kumar. \nYou are improved in flutter mobile app UI development. \nGood work :)"),
             Divider(
               color: Colors.grey[300],
               height: 3,
               thickness: 5,
             ),
-            UserPostCard(),
+            UserPostCard(type: "image", data: "assets/images/sai_img.jpeg"),
             Divider(
               color: Colors.grey[300],
               height: 3,

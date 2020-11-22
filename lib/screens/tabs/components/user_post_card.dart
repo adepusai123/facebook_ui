@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class UserPostCard extends StatelessWidget {
   const UserPostCard({
     Key key,
+    this.type,
+    this.data,
   }) : super(key: key);
+
+  final String type;
+  final dynamic data;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +44,7 @@ class UserPostCard extends StatelessWidget {
                 )
               ],
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Image.asset("assets/images/sai_img.jpeg"),
-            ),
+            buildContentWidget(type, data),
             SizedBox(
               height: 5,
             ),
@@ -128,5 +130,24 @@ class UserPostCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Container buildContentWidget(type, data) {
+    switch (type) {
+      case "image":
+        return Container(
+          padding: EdgeInsets.all(10),
+          child: Image.asset(data),
+        );
+        break;
+      default:
+        return Container(
+          padding: EdgeInsets.all(10),
+          child: Text(
+            data,
+            style: TextStyle(color: Colors.black),
+          ),
+        );
+    }
   }
 }
