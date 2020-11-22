@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/chat_rooms.dart';
+import 'components/live_photo_room.dart';
 import 'components/profile_status.dart';
 
 class HomeTabScreen extends StatelessWidget {
@@ -13,38 +15,16 @@ class HomeTabScreen extends StatelessWidget {
             color: Colors.grey,
             height: 2,
           ),
-          DefaultTabController(
-            length: 3,
-            child: TabBar(
-              onTap: (tabIndex) {
-                print(tabIndex);
-              },
-              tabs: [
-                Tab(
-                  iconMargin: EdgeInsets.all(2),
-                  icon: Icon(
-                    Icons.video_call,
-                    color: Colors.red,
-                  ),
-                ),
-                Tab(
-                  icon: Icon(
-                    Icons.photo_album_rounded,
-                    color: Colors.green,
-                  ),
-                ),
-                Tab(
-                  icon: Icon(
-                    Icons.video_call,
-                    color: Colors.purple,
-                  ),
-                )
-              ],
-            ),
-          ),
+          LivePhotoRoomWidget(),
           Divider(
             color: Colors.grey[300],
-            height: 2,
+            height: 3,
+            thickness: 5,
+          ),
+          ChatRoomsWidget(),
+          Divider(
+            color: Colors.grey[300],
+            height: 3,
             thickness: 5,
           ),
         ],
