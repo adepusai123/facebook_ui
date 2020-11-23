@@ -1,4 +1,5 @@
 import 'package:facebook_ui/components/profile_circle.dart';
+import 'package:facebook_ui/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'components/menu_options.dart';
@@ -39,6 +40,14 @@ class MenuTabScreen extends StatelessWidget {
           InkWell(
             onTap: () {
               print('Show Profile Page');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ProfileScreen();
+                  },
+                ),
+              );
             },
             child: Row(
               children: [
