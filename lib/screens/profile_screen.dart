@@ -1,3 +1,5 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:facebook_ui/components/full_width_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,8 +20,8 @@ class ProfileScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 height: size.height * 0.37,
@@ -33,11 +35,149 @@ class ProfileScreen extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              )
+              ),
+              Text(
+                "Sub text here",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              Divider(),
+              IconTextWidget(
+                icon: EvaIcons.heart,
+                text: "Single",
+              ),
+              IconTextWidget(
+                icon: Icons.more_horiz,
+                text: "See Your About Info",
+              ),
+              FullWidthButton(
+                label: "Edit Public Details",
+                press: () {},
+                color: Colors.blue[50],
+                btnHeight: 34,
+                labelColor: Colors.blue,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Divider(),
+              FriendsGridWidget()
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class FriendsGridWidget extends StatelessWidget {
+  const FriendsGridWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                  child: Text(
+                    "Friends",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    "1000 friends",
+                    style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                )
+              ],
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Find Friends",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+        Container(
+          height: 200,
+          child: GridView.count(
+            crossAxisCount: 3,
+            children: List.generate(6, (index) {
+              return Container(
+                margin: EdgeInsets.all(5),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'Item $index',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              );
+            }),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class IconTextWidget extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  const IconTextWidget({
+    Key key,
+    this.icon,
+    this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(
+            icon,
+            color: Colors.grey[600],
+            size: 30,
+          ),
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 18,
+          ),
+        )
+      ],
     );
   }
 }
