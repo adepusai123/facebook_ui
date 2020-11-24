@@ -115,7 +115,7 @@ class WallProfileComponent extends StatelessWidget {
                   ))
             ],
           ),
-          left: (MediaQuery.of(context).size.width / 2) - 110,
+          left: (MediaQuery.of(context).size.width / 2) - 120,
           top: 110,
         ),
       ],
