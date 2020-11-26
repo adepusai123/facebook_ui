@@ -1,5 +1,9 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:facebook_ui/components/full_width_button.dart';
+import 'package:facebook_ui/components/profile_circle.dart';
+import 'package:facebook_ui/screens/tabs/components/chat_rooms.dart';
+import 'package:facebook_ui/screens/tabs/components/live_photo_room.dart';
+import 'package:facebook_ui/screens/tabs/components/user_post_card.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,54 +22,120 @@ class ProfileScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: size.height * 0.37,
-                padding: EdgeInsets.all(10),
-                child: WallProfileComponent(),
+        body: ListView(
+          // shrinkWrap: true,
+          children: [
+            Container(
+              height: size.height * 0.37,
+              padding: EdgeInsets.all(10),
+              child: WallProfileComponent(),
+            ),
+            Text(
+              "Sai Kumar Adepu",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
-              Text(
-                "Sai Kumar Adepu",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              "Sub text here",
+              style: TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.normal,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Divider(),
+            IconTextWidget(
+              icon: EvaIcons.heart,
+              text: "Single",
+            ),
+            IconTextWidget(
+              icon: Icons.more_horiz,
+              text: "See Your About Info",
+            ),
+            FullWidthButton(
+              label: "Edit Public Details",
+              press: () {},
+              color: Colors.blue[50],
+              btnHeight: 34,
+              labelColor: Colors.blue,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Divider(),
+            FriendsGridWidget(),
+            SizedBox(
+              height: 8,
+            ),
+            Divider(
+              thickness: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Posts",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
-              ),
-              Text(
-                "Sub text here",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.normal,
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.grey[200],
+                      padding: EdgeInsets.all(8),
+                      child: Icon(Icons.tune),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Container(
+                      color: Colors.grey[200],
+                      margin: EdgeInsets.only(right: 8),
+                      padding: EdgeInsets.all(8),
+                      child: Icon(Icons.settings),
+                    )
+                  ],
                 ),
-              ),
-              Divider(),
-              IconTextWidget(
-                icon: EvaIcons.heart,
-                text: "Single",
-              ),
-              IconTextWidget(
-                icon: Icons.more_horiz,
-                text: "See Your About Info",
-              ),
-              FullWidthButton(
-                label: "Edit Public Details",
-                press: () {},
-                color: Colors.blue[50],
-                btnHeight: 34,
-                labelColor: Colors.blue,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Divider(),
-              FriendsGridWidget()
-            ],
-          ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ProfileCircleComponent(),
+                Container(
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      "What's on your mind?",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Divider(),
+            LivePhotoRoomWidget(),
+            Divider(
+              thickness: 6,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text("Photos, Life Events, Music etc.."),
+            ),
+            Divider(
+              thickness: 6,
+            ),
+            UserPostCard(type: "image", data: "assets/images/sai_img.jpeg"),
+          ],
         ),
       ),
     );
@@ -73,7 +143,40 @@ class ProfileScreen extends StatelessWidget {
 }
 
 class FriendsGridWidget extends StatelessWidget {
-  const FriendsGridWidget({
+  final List<Map<String, String>> photos = [
+    {
+      "image":
+          "https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg",
+      "name": "Nikky"
+    },
+    {
+      "image":
+          "https://img.etimg.com/thumb/msid-49920972,width-640,resizemode-4,imgsize-65301/kavin-mittal-hike-messenger-app.jpg",
+      "name": "Vikky"
+    },
+    {
+      "image":
+          "https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.h1280.jpg",
+      "name": "john"
+    },
+    {
+      "image":
+          "https://profiles.howard.edu/sites/profiles.howard.edu/files/Screen%20Shot%202017-10-11%20at%203.54.36%20PM.png",
+      "name": "Albert"
+    },
+    {
+      "image":
+          "https://media.self.com/photos/57d89d20d3276fe232946ab3/master/w_1600%2Cc_limit/phone-beach-870.jpg",
+      "name": "Goblins"
+    },
+    {
+      "image":
+          "https://mobirise.com/bootstrap-template/profile-template/assets/images/timothy-paul-smith-256424-1200x800.jpg",
+      "name": "Sophie"
+    }
+  ];
+
+  FriendsGridWidget({
     Key key,
   }) : super(key: key);
 
@@ -81,67 +184,98 @@ class FriendsGridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                  child: Text(
-                    "Friends",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    "1000 friends",
-                    style: TextStyle(
-                        // fontWeight: FontWeight.bold,
+        buildFriendsHeading(),
+        Container(
+          height: 300,
+          child: GridView.count(
+            crossAxisCount: 3,
+            children: List.generate(
+              photos.length,
+              (index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 100,
+                      margin: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            photos[index]["image"],
+                          ),
                         ),
-                  ),
-                )
-              ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        photos[index]["name"],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    )
+                  ],
+                );
+              },
             ),
-            GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Find Friends",
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 16,
-                  ),
+          ),
+        ),
+        FullWidthButton(
+          label: "See All Friends",
+          labelColor: Colors.black,
+          btnHeight: 40,
+          color: Colors.grey[200],
+          press: () {},
+        )
+      ],
+    );
+  }
+
+  Row buildFriendsHeading() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+              child: Text(
+                "Friends",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                "1000 friends",
+                style: TextStyle(
+                    // fontWeight: FontWeight.bold,
+                    ),
               ),
             )
           ],
         ),
-        Container(
-          height: 200,
-          child: GridView.count(
-            crossAxisCount: 3,
-            children: List.generate(6, (index) {
-              return Container(
-                margin: EdgeInsets.all(5),
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  'Item $index',
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              );
-            }),
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Find Friends",
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 16,
+              ),
+            ),
           ),
         )
       ],

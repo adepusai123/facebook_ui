@@ -39,7 +39,7 @@ class UserPostCard extends StatelessWidget {
                     onTap: () {
                       print('selection on post more info');
                     },
-                    child: Icon(Icons.more_vert),
+                    child: Icon(Icons.more_horiz),
                   ),
                 )
               ],
