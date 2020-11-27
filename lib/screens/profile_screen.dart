@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:facebook_ui/components/full_width_button.dart';
 import 'package:facebook_ui/components/profile_circle.dart';
 import 'package:facebook_ui/screens/tabs/components/chat_rooms.dart';
+import 'package:facebook_ui/screens/tabs/components/list_photos.dart';
 import 'package:facebook_ui/screens/tabs/components/live_photo_room.dart';
 import 'package:facebook_ui/screens/tabs/components/user_post_card.dart';
 import 'package:flutter/material.dart';
@@ -231,7 +232,16 @@ class FriendsGridWidget extends StatelessWidget {
           labelColor: Colors.black,
           btnHeight: 40,
           color: Colors.grey[200],
-          press: () {},
+          press: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ListPhotos();
+                },
+              ),
+            );
+          },
         )
       ],
     );
